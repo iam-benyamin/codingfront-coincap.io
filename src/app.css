@@ -1,0 +1,19 @@
+*, *:before, *:after {
+  font-family: Lato, Helvetica Neue, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+li {
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
