@@ -6,14 +6,14 @@ import { Content, Banner, Table, Btn } from "./style";
 export function Home() {
   // TODO set loading
   const [assets, setAssets] = useState([]);
-  const [offset, setOffset] = useState(0);
+  // const [offset, setOffset] = useState(0);
   useEffect(() => {
     async function getApi() {
-      const response = await api.get("assets/", { limit: 10, offset: offset });
+      const response = await api.get("assets/", { limit: 10, offset: 0 });
       setAssets(response.data.data);
     }
     getApi();
-  }, []);
+  });
   function renderFarm() {
     return assets.map((item) => {
       const {
