@@ -32,7 +32,7 @@ export function Footer() {
             <ul>
               <li>
                 {/* Download PDF */}
-                <a href="#">Terms of Service</a>
+                <a href="https://assets.coincap.io/documents/terms_of_service.pdf">Terms of Service</a>
               </li>
               <li>
                 <a href="https://shapeshift.com/privacy?_ga=2.193726509.1809366574.1645875692-199164662.1643960911">Privacy Policy</a>
@@ -62,10 +62,10 @@ export function Footer() {
           <div className="col get-app">
             <h4>COINCAP APP AVAILABLE ON</h4>
             <a href="https://itunes.apple.com/us/app/coincap/id1074052280?mt=8&ign-mpt=uo%3D4">
-              <img src={appleStore} />
+              <img src={appleStore} alt="apple store banner link" />
             </a>
             <a href="https://play.google.com/store/apps/details?id=io.coinCap.coinCap">
-              <img src="https://coincap.io/static/images/stores/google_play.svg" />
+              <img src="https://coincap.io/static/images/stores/google_play.svg" alt="google app store banner link" />
             </a>
           </div>
         </Style>
