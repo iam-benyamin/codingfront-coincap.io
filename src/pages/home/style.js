@@ -36,6 +36,22 @@ export const Table = styled.div`
         table {
             width: 100%;
         }
+        table {
+            tbody {
+                tr {
+                    td {
+                        &.name {
+                            text-align: left;
+                                img {
+                                    width: 30px;
+                                    hight: 30px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 `
 

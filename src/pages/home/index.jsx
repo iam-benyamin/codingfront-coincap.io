@@ -17,14 +17,21 @@ export function Home() {
   function renderFarm() {
     return assets.map((item) => {
       const {
-        id, rank, name, symbol, priceUsd, 
+        id, rank, name, symbol, priceUsd,
         marketCapUsd, vwap24Hr, supply, volumeUsd24Hr, changePercent24Hr,
       } = item;
       return (
         <Fragment>
           <tr key={id}>
             <td>{rank}</td>
-            <td>{name} - {symbol}</td>
+            <td className="name">
+                <img
+                  src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
+                  alt={`coin ${name}`}
+                />
+                {name}
+                {symbol}
+            </td>
             <td>{Math.round(priceUsd * 100) / 100}</td>
             <td>{Math.round(marketCapUsd * 100) / 100}</td>
             <td>{Math.round(vwap24Hr * 100) / 100}</td>
@@ -38,9 +45,12 @@ export function Home() {
     });
   }
   async function viewMore() {
-    setOffset(offset + 10)
-    const response = await api.get('assets/', {limit: 10, offset: offset + 10})
-    setAssets([...assets, ...response.data.data])
+    setOffset(offset + 10);
+    const response = await api.get("assets/", {
+      limit: 10,
+      offset: offset + 10,
+    });
+    setAssets([...assets, ...response.data.data]);
   }
   return (
     <DefaultLayout>
@@ -81,7 +91,7 @@ export function Home() {
             <div className="container">
               <div className="content">
                 <table>
-                <thead>
+                  <thead>
                     <td>rank</td>
                     <td>name</td>
                     <td>price</td>
