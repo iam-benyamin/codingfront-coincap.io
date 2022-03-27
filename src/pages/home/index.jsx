@@ -6,14 +6,14 @@ import { Content, Banner, Table, Btn } from "./style";
 export function Home() {
   // TODO set loading
   const [assets, setAssets] = useState([]);
-  // const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(0);
   useEffect(() => {
     async function getApi() {
-      const response = await api.get("assets/", { limit: 10, offset: 0 });
+      const response = await api.get("assets/", { limit: 10, offset: offset });
       setAssets(response.data.data);
     }
     getApi();
-  });
+  }, []);
   function renderFarm() {
     return assets.map((item) => {
       const {
@@ -36,6 +36,11 @@ export function Home() {
         </Fragment>
       );
     });
+  }
+  async function viewMore() {
+    setOffset(offset + 10)
+    const response = await api.get('assets/', {limit: 10, offset: offset + 10})
+    setAssets([...assets, ...response.data.data])
   }
   return (
     <DefaultLayout>
@@ -94,7 +99,7 @@ export function Home() {
         </div>
         <div className="container">
           <Btn>
-            <button>View More</button>
+            <button onClick={viewMore}>View More</button>
           </Btn>
         </div>
       </Content>
