@@ -35,17 +35,50 @@ export const Table = styled.div`
         background: #ffffff;
         table {
             width: 100%;
-        }
-        table {
-            tbody {
-                tr {
-                    td {
-                        &.name {
-                            text-align: left;
-                                img {
-                                    width: 30px;
-                                    hight: 30px;
-                                }
+            border-collapse: collapse;            
+            border-radius: 5px;
+            tr {
+                border-bottom: 1px solid #22242626;
+                th {
+                    background: #fafafa;
+                    color: #00000099;
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                    cursor: pointer;
+                    padding: 13px 15px;
+                    text-align: right;
+                    &:nth-child(1) {
+                        text-align: center;
+                    }
+                    &:nth-child(2) {
+                        text-align: left;
+                    }
+                    &:hover {
+                        color: #000000;
+                    }
+                }
+                &:hover {
+                    background: #0000000d;
+                    cursor: pointer;
+                }
+                td {
+                    padding: 11px;
+                    margin: 1rem;
+                    font-weight: 200;
+                    font-size: 14px;
+                    color: #000000e6; 
+                    text-align: right;
+                    &:nth-child(1) {
+                        text-align: center;
+                    }
+                    &:nth-child(2) {
+                        text-align: left;
+                    }
+                    &.name {
+                        text-align: left;
+                            img {
+                                width: 30px;
+                                hight: 30px;
                             }
                         }
                     }

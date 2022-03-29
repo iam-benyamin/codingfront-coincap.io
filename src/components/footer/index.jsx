@@ -46,6 +46,7 @@ export function Footer() {
           </div>
           <div className="col social-media">
             <h4>FOLLOW US</h4>
+            {/* put next two icon in single line */}
             <ul>
               <li>
                 <a href="https://twitter.com/CoinCap_io">

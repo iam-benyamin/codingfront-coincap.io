@@ -20,6 +20,7 @@ export const HeaderDiv = styled.div`
   }
   #logo {
     height: 40px;
+    // TODO fix bug: image dose not show when we have padding
     padding: 20px 15px;
     img {
       height: 100%;

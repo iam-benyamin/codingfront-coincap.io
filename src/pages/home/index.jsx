@@ -17,29 +17,38 @@ export function Home() {
   function renderFarm() {
     return assets.map((item) => {
       const {
-        id, rank, name, symbol, priceUsd,
-        marketCapUsd, vwap24Hr, supply, volumeUsd24Hr, changePercent24Hr,
+        id,
+        rank,
+        name,
+        symbol,
+        priceUsd,
+        marketCapUsd,
+        vwap24Hr,
+        supply,
+        volumeUsd24Hr,
+        changePercent24Hr,
       } = item;
       return (
         <Fragment>
           <tr key={id}>
             <td>{rank}</td>
             <td className="name">
-                <img
-                  src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
-                  alt={`coin ${name}`}
-                />
-                {name}
-                {symbol}
+              <img
+                src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
+                alt={`coin ${name}`}
+              />
+              {name}
+              {symbol}
             </td>
-            <td>{Math.round(priceUsd * 100) / 100}</td>
-            <td>{Math.round(marketCapUsd * 100) / 100}</td>
-            <td>{Math.round(vwap24Hr * 100) / 100}</td>
+            <td>${Math.round(priceUsd * 100) / 100}</td>
+            <td>${Math.round(marketCapUsd * 100) / 100}</td>
+            <td>${Math.round(vwap24Hr * 100) / 100}</td>
             <td>{Math.round(supply * 100) / 100}</td>
             <td>{Math.round(volumeUsd24Hr * 100) / 100}</td>
-            <td>{Math.round(changePercent24Hr * 100) / 100}</td>
+            <td style={{ color: changePercent24Hr > 0 ? "#18c683" : "#f44336" }} >
+              {Math.round(changePercent24Hr * 100) / 100}
+            </td>
           </tr>
-          <br />
         </Fragment>
       );
     });
@@ -91,17 +100,17 @@ export function Home() {
             <div className="container">
               <div className="content">
                 <table>
-                  <thead>
-                    <td>rank</td>
-                    <td>name</td>
-                    <td>price</td>
-                    <td>market Cap</td>
-                    <td>VWAP (24Hr)</td>
-                    <td>supply</td>
-                    <td>Volume (24Hr)</td>
-                    <td>Change (24Hr)</td>
-                  </thead>
-                  <tbody>{renderFarm()}</tbody>
+                  <tr>
+                    <th>rank</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>market Cap</th>
+                    <th>VWAP (24Hr)</th>
+                    <th>supply</th>
+                    <th>Volume (24Hr)</th>
+                    <th>Change (24Hr)</th>
+                  </tr>
+                  {renderFarm()}
                 </table>
               </div>
             </div>
