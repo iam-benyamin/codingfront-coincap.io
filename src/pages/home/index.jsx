@@ -30,6 +30,7 @@ export function Home() {
       } = item;
       return (
         <Fragment>
+          {/* TODO change values display */}
           <tr key={id}>
             <td>{rank}</td>
             <td className="name">
@@ -45,7 +46,9 @@ export function Home() {
             <td>${Math.round(vwap24Hr * 100) / 100}</td>
             <td>{Math.round(supply * 100) / 100}</td>
             <td>{Math.round(volumeUsd24Hr * 100) / 100}</td>
-            <td style={{ color: changePercent24Hr > 0 ? "#18c683" : "#f44336" }} >
+            <td
+              style={{ color: changePercent24Hr > 0 ? "#18c683" : "#f44336" }}
+            >
               {Math.round(changePercent24Hr * 100) / 100}
             </td>
           </tr>
