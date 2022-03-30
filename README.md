@@ -16,3 +16,4 @@ npm start
 
 - [ ] exchange page
 - [ ] show full data for coin in a single page
+- [ ] ask for cookie 
