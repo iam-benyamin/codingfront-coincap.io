@@ -17,3 +17,5 @@ npm start
 - [ ] exchange page
 - [ ] show full data for coin in a single page
 - [ ] ask for cookie 
+- [ ] show dynamic titel tag in header section
+- [ ] flash table row 

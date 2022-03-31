@@ -2,6 +2,7 @@ import { DefaultLayout } from "../../components/layouts/defaultLayout";
 import { api } from "../../utils/api";
 import { Fragment, useState, useEffect } from "react";
 import { Content, Banner, Table, Btn } from "./style";
+import { abbreviateNumber } from '../../utils/abbreviateNumber'
 
 export function Home() {
   // TODO set loading
@@ -42,10 +43,10 @@ export function Home() {
               {symbol}
             </td>
             <td>${Math.round(priceUsd * 100) / 100}</td>
-            <td>${Math.round(marketCapUsd * 100) / 100}</td>
+            <td>${abbreviateNumber(Math.round(marketCapUsd * 100) / 100)}</td>
             <td>${Math.round(vwap24Hr * 100) / 100}</td>
-            <td>{Math.round(supply * 100) / 100}</td>
-            <td>{Math.round(volumeUsd24Hr * 100) / 100}</td>
+            <td>{abbreviateNumber(Math.round(supply * 100) / 100)}</td>
+            <td>{abbreviateNumber(Math.round(volumeUsd24Hr * 100) / 100)}</td>
             <td
               style={{ color: changePercent24Hr > 0 ? "#18c683" : "#f44336" }}
             >
@@ -99,6 +100,7 @@ export function Home() {
           </div>
         </Banner>
         <div className="container">
+          {/* TODO sort functionality */}
           <Table>
             <div className="container">
               <div className="content">
