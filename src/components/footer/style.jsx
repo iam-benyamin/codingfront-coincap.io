@@ -33,7 +33,7 @@ export const Style = styled.div`
       margin-right: 150px;
       ul {
         li {
-            width: 40px;
+            width: 37px;
           a {
             display: inline-block;
             padding: 8px;

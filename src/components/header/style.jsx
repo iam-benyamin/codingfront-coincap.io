@@ -19,15 +19,18 @@ export const HeaderDiv = styled.div`
     }
   }
   #logo {
-    height: 40px;
-    // TODO fix bug: image dose not show when we have padding
-    padding: 20px 15px;
-    img {
-      height: 100%;
-    }
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(0, 0, 0, 0.03);
+    display: flex;
+    a {
+      diplay: block;
+      padding: 20px 10px;
+      img {
+        height: 100%;
+        width: 90px;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.03);
+      }
     }
   }
   #buttons {

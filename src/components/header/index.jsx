@@ -19,7 +19,9 @@ export function Header() {
         </ul>
       </div>
       <div id="logo">
-        <img src={logo} alt="logo" />
+        <a href="https://coincap.io/">
+          <img src={logo} alt="logo" />
+        </a>
       </div>
       <div id="buttons">
         <button>
