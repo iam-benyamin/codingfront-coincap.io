@@ -2,16 +2,18 @@ import { DefaultLayout } from "../../components/layouts/defaultLayout";
 import { api } from "../../utils/api";
 import { Fragment, useState, useEffect } from "react";
 import { Content, Banner, Table, Btn } from "./style";
-import { abbreviateNumber } from '../../utils/abbreviateNumber'
+import { abbreviateNumber } from "../../utils/abbreviateNumber";
 
 export function Home() {
-  // TODO set loading
+  const [isLoading, setIsLoading] = useState(false);
   const [assets, setAssets] = useState([]);
   const [offset, setOffset] = useState(0);
   useEffect(() => {
     async function getApi() {
+      setIsLoading(true);
       const response = await api.get("assets/", { limit: 10, offset: offset });
       setAssets(response.data.data);
+      setIsLoading(false);
     }
     getApi();
   }, []);
@@ -67,7 +69,7 @@ export function Home() {
   }
   return (
     <DefaultLayout>
-      <Content>
+      <Content style={{display: isLoading ? "none" : ""}}>
         <Banner>
           {/* TODO dynamick banner values */}
           <div className="container">
