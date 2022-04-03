@@ -23,3 +23,4 @@ npm start
 - [ ] TODO error pages
 - [ ] TODO complite Exchanges page
 - [ ] TODO complite Methodology page
+- [ ] TODO write tests
