@@ -22,5 +22,9 @@ npm start
 - [ ] TODO responsive
 - [ ] TODO error pages
 - [ ] TODO complite Exchanges page
+<<<<<<< HEAD
 - [ ] TODO complite Methodology page
 - [ ] TODO write tests
+=======
+- [ ] TODO complite Methodology page
+>>>>>>> e34a40021ee32cec9431728ee94393f4af31aa6f
