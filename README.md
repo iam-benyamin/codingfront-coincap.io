@@ -20,3 +20,6 @@ npm start
 - [ ] TODO show dynamic titel tag in header section
 - [ ] TODO flash table row 
 - [ ] TODO responsive
+- [ ] TODO error pages
+- [ ] TODO complite Exchanges page
+- [ ] TODO complite Methodology page

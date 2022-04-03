@@ -11,7 +11,7 @@ export function Header() {
             <Link to="/">Coins</Link>
           </li>
           <li>
-            <Link to="/">Exchanges</Link>
+            <Link to="/exchanges">Exchanges</Link>
           </li>
           <li>
             <Link to="/swap">Swap</Link>
