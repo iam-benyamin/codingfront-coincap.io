@@ -76,9 +76,28 @@ export const Table = styled.div`
                     }
                     &.name {
                         text-align: left;
+                        .coin-logo {
+                            float: left;
+                            width: 30px;
+                            hight: 30px;
                             img {
-                                width: 30px;
-                                hight: 30px;
+                                width: 100%;
+                                hight: 100%;
+                            }
+                        }
+                        a.name-content {
+                            color: rgba(0, 0, 0, 0.9);
+                            float: left;
+                            margin-left: 5px;
+                            span {
+                                &.symbol {
+                                    opacity: 0.7;
+                                    line-height: 1.4;
+                                    font-size: 12px;
+                                }
+                            }
+                            &:hover {
+                                text-decoration: underline;
                             }
                         }
                     }

@@ -3,6 +3,7 @@ import { api } from "../../utils/api";
 import { Fragment, useState, useEffect } from "react";
 import { Content, Banner, Table, Btn } from "./style";
 import { abbreviateNumber } from "../../utils/abbreviateNumber";
+import { Link } from "react-router-dom";
 
 export function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -33,16 +34,19 @@ export function Home() {
       } = item;
       return (
         <Fragment>
-          {/* TODO change values display */}
           <tr key={id}>
             <td>{rank}</td>
             <td className="name">
-              <img
-                src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
-                alt={`coin ${name}`}
-              />
-              {name}
-              {symbol}
+              <div className="coin-logo">
+                <img
+                  src={`https://assets.coincap.io/assets/icons/${symbol.toLowerCase()}@2x.png`}
+                  alt={`coin ${name}`}
+                />
+              </div>
+              <Link className="name-content" to={`/assets/${id}`}>
+                <span>{name}</span><br />
+                <span className="symbol">{symbol}</span>
+              </Link>
             </td>
             <td>${Math.round(priceUsd * 100) / 100}</td>
             <td>${abbreviateNumber(Math.round(marketCapUsd * 100) / 100)}</td>
@@ -69,7 +73,7 @@ export function Home() {
   }
   return (
     <DefaultLayout>
-      <Content style={{display: isLoading ? "none" : ""}}>
+      <Content style={{ display: isLoading ? "none" : "" }}>
         <Banner>
           {/* TODO dynamick banner values */}
           <div className="container">

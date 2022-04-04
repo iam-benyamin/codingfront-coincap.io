@@ -12,7 +12,7 @@ export function Pathes() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/swap"  element={<Swap />} />
-        <Route path="/detail"  element={<Detail />} />
+        <Route path="/assets/:id"  element={<Detail />} />
         <Route path="/rate-compare"  element={<RateCompare />} />
         <Route path="/exchanges"  element={<Exchanges />} />
         <Route path="/methodology"  element={<Methodology />} />
