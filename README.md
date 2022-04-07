@@ -24,3 +24,4 @@ npm start
 - [ ] TODO complite Methodology page
 - [ ] TODO write tests
 - [ ] TODO complite Methodology page
+- [ ] TODO setting

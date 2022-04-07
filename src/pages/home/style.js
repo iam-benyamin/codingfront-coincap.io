@@ -33,6 +33,8 @@ export const Table = styled.div`
     .content {
         box-shadow: rgb(0 0 0 / 40%) 0px 2px 15px -3px;
         background: #ffffff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
         table {
             width: 100%;
             border-collapse: collapse;            
@@ -49,9 +51,13 @@ export const Table = styled.div`
                     text-align: right;
                     &:nth-child(1) {
                         text-align: center;
+                        border-top-left-radius: 5px;
                     }
                     &:nth-child(2) {
                         text-align: left;
+                    }
+                    &:nth-child(8) {
+                        border-top-right-radius: 5px;
                     }
                     &:hover {
                         color: #000000;
