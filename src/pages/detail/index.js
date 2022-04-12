@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Banner, Chart } from './style';
 import { api } from "../../utils/api";
 import { useEffect, useState } from 'react';
+import { LineChart } from './chart'
 
 export function Detail() {
     // TODO render farm 
@@ -35,7 +36,11 @@ export function Detail() {
                         </div>
                     </div>
                 </Banner>
-                <Chart>stazi</Chart>
+                <div className="container">
+                    <Chart>
+                        <LineChart />
+                    </Chart>
+                </div>
             </div>
         </DefaultLayout>
     )

@@ -5,4 +5,5 @@ export const Banner = styled.div`
     height: 100px;
 `
 export const Chart = styled.div`
+    margin: 20px 0;
 `

@@ -1,5 +1,3 @@
-
-
  Hi there Iam Benyamin and this is my final project for condingfront bootcamp
 
 ## see result
