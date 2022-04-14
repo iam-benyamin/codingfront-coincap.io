@@ -9,6 +9,7 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [assets, setAssets] = useState([]);
   const [offset, setOffset] = useState(0);
+  const [isShowButton, setIsShowButton] = useState(true);
   useEffect(() => {
     async function getApi() {
       setIsLoading(true);
@@ -44,7 +45,8 @@ export function Home() {
                 />
               </div>
               <Link className="name-content" to={`/assets/${id}`}>
-                <span>{name}</span><br />
+                <span>{name}</span>
+                <br />
                 <span className="symbol">{symbol}</span>
               </Link>
             </td>
@@ -70,6 +72,9 @@ export function Home() {
       offset: offset + 10,
     });
     setAssets([...assets, ...response.data.data]);
+    if (response.data.data.length === 0) {
+      setIsShowButton(false);
+    }
   }
   return (
     <DefaultLayout>
@@ -128,9 +133,11 @@ export function Home() {
           </Table>
         </div>
         <div className="container">
-          <Btn>
-            <button onClick={viewMore}>View More</button>
-          </Btn>
+          <div style={{ height: isShowButton ? "auto" : 50 }}>
+            <Btn style={{ display: isShowButton ? "block" : "none" }}>
+              <button onClick={viewMore}>View More</button>
+            </Btn>
+          </div>
         </div>
       </Content>
     </DefaultLayout>

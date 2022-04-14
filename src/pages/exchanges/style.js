@@ -5,6 +5,15 @@ export const Content = styled.div`
     position: relative;
     text-align: center;
 `
+export const Circle = styled.span`
+    background: #18c683;
+    text-align: center;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+`
 
 export const Banner = styled.div`
     height: 230px;
@@ -26,6 +35,7 @@ export const Banner = styled.div`
         }
     }
 `
+
 
 export const Table = styled.div`
     margin-top: -240px;
@@ -56,8 +66,9 @@ export const Table = styled.div`
                     &:nth-child(2) {
                         text-align: left;
                     }
-                    &:nth-child(8) {
+                    &:nth-child(7) {
                         border-top-right-radius: 5px;
+                        text-align: center;
                     }
                     &:hover {
                         color: #000000;
@@ -74,7 +85,7 @@ export const Table = styled.div`
                     font-size: 14px;
                     color: #000000e6; 
                     text-align: right;
-                    line-height: 1.3;
+                    line-height: 1.8;
                     &:nth-child(1) {
                         text-align: center;
                     }
@@ -115,6 +126,7 @@ export const Table = styled.div`
 `
 
 export const Btn = styled.div`
+    min-height: 20px;
     all: unset;
     button {
         all: unset;
