@@ -1,6 +1,6 @@
 import { DefaultLayout } from "../../components/layouts/defaultLayout";
 import { api } from "../../utils/api";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import { Content, Banner, Table, Btn } from "./style";
 import { abbreviateNumber } from "../../utils/abbreviateNumber";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ export function Home() {
   const [assets, setAssets] = useState([]);
   const [offset, setOffset] = useState(0);
   const [isShowButton, setIsShowButton] = useState(true);
+  const [coinDetailDisplay, setCoinDetailDisplay] = useState("none");
   useEffect(() => {
     async function getApi() {
       setIsLoading(true);
@@ -19,6 +20,9 @@ export function Home() {
     }
     getApi();
   }, []);
+  const showCoinDetail = () => {
+    setCoinDetailDisplay(coinDetailDisplay == "block" ? "none" : "block");
+  };
   function renderFarm() {
     return assets.map((item) => {
       const {
@@ -35,7 +39,7 @@ export function Home() {
       } = item;
       return (
         <Fragment>
-          <tr key={id}>
+          <tr key={id} onClick={showCoinDetail}>
             <td>{rank}</td>
             <td className="name">
               <div className="coin-logo">
@@ -61,6 +65,8 @@ export function Home() {
               {Math.round(changePercent24Hr * 100) / 100}
             </td>
           </tr>
+          <tr id="coin-detail" style={{ display: coinDetailDisplay, background: 'brown', height: 50 }}>
+          </tr>
         </Fragment>
       );
     });
@@ -72,7 +78,7 @@ export function Home() {
       offset: offset + 10,
     });
     setAssets([...assets, ...response.data.data]);
-    if (response.data.data.length === 0) {
+    if (response.data.data.length < 10) {
       setIsShowButton(false);
     }
   }
