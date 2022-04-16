@@ -6,7 +6,6 @@ export const Content = styled.div`
     text-align: center;
 `
 export const Circle = styled.span`
-    background: #18c683;
     text-align: center;
     height: 15px;
     width: 15px;

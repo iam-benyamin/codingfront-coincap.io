@@ -3,6 +3,7 @@ import { Banner, Table, Content, Circle, Btn } from "./style";
 import { useState, useEffect } from 'react';
 import { Fragment } from "react";
 import { api } from "../../utils/api";
+import { abbreviateNumber } from "../../utils/abbreviateNumber";
 
 export function Exchanges() {
     const [isShowButton, setIsShowButton] = useState(true);
@@ -12,7 +13,7 @@ export function Exchanges() {
     useEffect(() => {
         async function getApi() {
             setIsLoading(true);
-            const response = await api.get("exchanges/", { limit: 10, offset: offset });
+            const response = await api.get("exchanges/", { limit: 20, offset: offset });
             setAssets(response.data.data);
             setIsLoading(false);
         }
@@ -25,32 +26,33 @@ export function Exchanges() {
                 rank,
                 name,
                 tradingPairs,
+                percentTotalVolume,
+                volumeUsd,
             } = item;
             return (
                 <Fragment>
                     <tr key={id}>
                         <td>{rank}</td>
                         <td className="name">{name}</td>
-                        <td>{Math.round(tradingPairs * 100) / 100}</td>
-                        {/* Not fount VWAP (24Hr), total status */}
-                        <td>BSD/USDT</td>
-                        <td>$9.6b</td>
-                        <td>29.8%</td>
-                        <td><Circle /></td>
+                        <td>{tradingPairs > 0 ? `${Math.round(tradingPairs * 100) / 100}$` : "0"}</td>
+                        <td>{tradingPairs > 0 ? `BSD/USDT` : "N/A"}</td>
+                        <td>{tradingPairs > 0 ? `${abbreviateNumber(Math.round(volumeUsd * 100) / 100)}` : "-"}</td>
+                        <td>{tradingPairs > 0 ? `${Math.round(percentTotalVolume * 100) / 100}%` : "-"}</td>
+                        <td><Circle style={{background: tradingPairs > 0 ? "#18c683" : "#f44336"}}/></td>
                     </tr>
                 </Fragment>
             );
         });
     }
     async function viewMore() {
-        setOffset(offset + 10);
+        setOffset(offset + 20);
         const response = await api.get("exchanges/", {
-          limit: 10,
-          offset: offset + 10,
+          limit: 20,
+          offset: offset + 20,
         });
         setAssets([...assets, ...response.data.data]);
         console.log(response.data.data);
-        if(response.data.data.length < 10) {
+        if(response.data.data.length < 20) {
             setIsShowButton(false);
         }
       }
