@@ -12,7 +12,6 @@ npm start
 
 ## TODO 
 
-- [ ] TODO exchange page
 - [ ] TODO show full data for coin in a single page
 - [ ] TODO ask for cookie 
 - [ ] TODO show dynamic titel tag in header section
