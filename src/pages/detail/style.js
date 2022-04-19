@@ -2,7 +2,69 @@ import styled from "styled-components";
 
 export const Banner = styled.div`
     background: linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246));
-    height: 100px;
+    padding-bottom: 20px;
+    .banner-content {
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        color: #ffffff;
+        .coin-rank {
+            position: relative;
+            &:before {
+                content: "";
+                width: calc(100% + 20px);
+                height: 10px;
+                background: #18c683;
+                position: absolute;
+                left: -10px;
+                top: 0px;
+                border-radius: 8px;
+            }
+            padding-top: 10px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            background: #18c683;
+            width: 60px;
+            height: 90px;
+            border-bottom-right-radius: 15px; 
+            border-bottom-left-radius: 15px; 
+            p {
+                opacity: 1;
+                padding-top: 22px;
+            }
+        }
+        .coin {
+            p {
+                font-weight: 700;
+                line-height: 1.3em;
+                opacity: 1;
+                font-size: 24px;
+                margin-bottom: 15px;
+                &:nth-child(2) {
+                    font-weight: 500;
+                }
+            }
+            span {
+                margin-left: 15px;
+                font-size: 18px;
+            }
+        }
+        p {
+            font-weight: 400;
+            line-height: 1.2em;
+            opacity: 0.6;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        span {
+            font-size: 1.28em;
+        }
+        button {
+            mrgin-top: 30px;
+            padding: 9px 10px;
+        }
+    }
 `
 export const Chart = styled.div`
     width: 70%;

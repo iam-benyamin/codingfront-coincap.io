@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Banner, Chart, Swap, StyleData, Table, Btn, Circle } from './style';
 import { api } from "../../utils/api";
 import { Fragment, useEffect, useState } from 'react';
+import { abbreviateNumber } from "../../utils/abbreviateNumber";
 
 export function Detail() {
     // TODO chart section
@@ -15,33 +16,37 @@ export function Detail() {
 
     useEffect(() => {
         async function getApi() {
+            setIsLoading(true);
             const response = await api.get(`assets/${coin.id}`);
             setAssetsId(response.data.data);
         }
         async function getApiMarkets() {
-            const response = await api.get(`assets/${coin.id}/markets/`, { limit: 20, offset: offset })
+            const response = await api.get("exchanges/", { limit: 20, offset: offset });
             setAssets(response.data.data);
+            setIsLoading(false);
         }
-        setIsLoading(true);
+
         getApi();
         getApiMarkets();
-        setIsLoading(false);
     }, []);
     function renderFarm() {
         return assets.map((item) => {
             const {
                 id,
-                exchangeId,
+                name,
+                tradingPairs,
+                percentTotalVolume,
+                volumeUsd,
             } = item;
             return (
                 <Fragment>
                     <tr key={id}>
-                        <td>{exchangeId}</td>
-                        <td>$1,826.83</td>
-                        <td>USDT/BTC</td>
-                        <td>$182,826.83</td>
-                        <td>17%</td>
-                        <td><Circle style={{ background: 1 > 0 ? "#18c683" : "#f44336" }} /></td>
+                        <td className="name">{name}</td>
+                        <td>{tradingPairs > 0 ? `${Math.round(tradingPairs * 100) / 100}$` : "0"}</td>
+                        <td>{tradingPairs > 0 ? `BSD/USDT` : "N/A"}</td>
+                        <td>{tradingPairs > 0 ? `${abbreviateNumber(Math.round(volumeUsd * 100) / 100)}` : "-"}</td>
+                        <td>{tradingPairs > 0 ? `${Math.round(percentTotalVolume * 100) / 100}%` : "-"}</td>
+                        <td><Circle style={{ background: tradingPairs > 0 ? "#18c683" : "#f44336" }} /></td>
                     </tr>
                 </Fragment>
             );
@@ -58,20 +63,45 @@ export function Detail() {
             setIsShowButton(false);
         }
     }
-    console.log(`assets id`)
-    console.log(assetsId)
-    console.log(`assets`)
-    console.log(assets)
     return (
         <DefaultLayout>
             <div style={{ display: isLoading ? "none" : "block" }}>
                 <Banner>
                     <div className="container">
                         <div className="banner-content">
-                            <p>{assetsId.rank}</p>
-                            <p>{assetsId.name}</p>
-                            <p>{assetsId.symbol}</p>
-                            <p>{assetsId.priceUsd}</p>
+                            <div className="coin-rank">
+                                <span className="hat">   </span>
+                                <span>{assetsId.rank}</span>
+                                <p>rank</p>
+                            </div>
+                            <div className="coin">
+                                <p>{assetsId.name}({assetsId.symbol})</p>
+                                <p>${Math.round(assetsId.priceUsd * 100) / 100}
+                                    <span
+                                        style={{ color: assetsId.changePercent24Hr > 0 ? "#18c683" : "#f44336" }}
+                                    >
+                                        {Math.round(assetsId.changePercent24Hr * 100) / 100}
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p>Market Cap</p>
+                                <span>${abbreviateNumber(Math.round(assetsId.marketCapUsd * 100) / 100)}</span><br />
+                                <Btn>
+                                    <button>Website</button>
+                                </Btn>
+                            </div>
+                            <div>
+                                <p>Volume (24Hr)</p>
+                                <span>${abbreviateNumber(Math.round(assetsId.volumeUsd24Hr * 100) / 100)}</span><br />
+                                <Btn>
+                                    <button>Explore</button>
+                                </Btn>
+                            </div>
+                            <div>
+                                <p>supply</p>
+                                <span>{abbreviateNumber(Math.round(assetsId.supply * 100) / 100)}{assetsId.symbol}</span>
+                            </div>
                         </div>
                     </div>
                 </Banner>
