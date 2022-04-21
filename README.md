@@ -14,11 +14,6 @@ npm start
 
 - [ ] TODO show full data for coin in a single page
 - [ ] TODO ask for cookie 
-- [ ] TODO show dynamic titel tag in header section
-- [ ] TODO flash table row 
+- [ ] TODO setting button and section
 - [ ] TODO responsive
-- [ ] TODO complite Exchanges page
-- [ ] TODO complite Methodology page
-- [ ] TODO write tests
-- [ ] TODO complite Methodology page
-- [ ] TODO setting
+- [ ] TODO flash table row 

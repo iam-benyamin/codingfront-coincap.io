@@ -13,7 +13,7 @@ export function Detail() {
     const [assetsId, setAssetsId] = useState([]);
     const [assets, setAssets] = useState([]);
     const [offset, setOffset] = useState(0);
-
+    document.title = `${assetsId.name} (${assetsId.symbol}) | CoinCap.io`
     useEffect(() => {
         async function getApi() {
             setIsLoading(true);
@@ -25,7 +25,6 @@ export function Detail() {
             setAssets(response.data.data);
             setIsLoading(false);
         }
-
         getApi();
         getApiMarkets();
     }, []);

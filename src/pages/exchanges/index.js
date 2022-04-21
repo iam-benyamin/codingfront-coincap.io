@@ -10,6 +10,7 @@ export function Exchanges() {
     const [isLoading, setIsLoading] = useState(false);
     const [assets, setAssets] = useState([]);
     const [offset, setOffset] = useState(0);
+    document.title = "Exchanges | CoinCap.io";
     useEffect(() => {
         async function getApi() {
             setIsLoading(true);

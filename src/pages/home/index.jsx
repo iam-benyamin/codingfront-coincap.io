@@ -11,6 +11,8 @@ export function Home() {
   const [offset, setOffset] = useState(0);
   const [isShowButton, setIsShowButton] = useState(true);
   const [coinDetailDisplay, setCoinDetailDisplay] = useState("none");
+  document.title =
+    "CoinCap.io | Reliable Cryptocurrency Prices and Market Capitalizations";
   useEffect(() => {
     async function getApi() {
       setIsLoading(true);
@@ -65,8 +67,14 @@ export function Home() {
               {Math.round(changePercent24Hr * 100) / 100}
             </td>
           </tr>
-          <tr id="coin-detail" style={{ display: coinDetailDisplay, background: 'brown', height: 50 }}>
-          </tr>
+          <tr
+            id="coin-detail"
+            style={{
+              display: coinDetailDisplay,
+              background: "brown",
+              height: 50,
+            }}
+          ></tr>
         </Fragment>
       );
     });
