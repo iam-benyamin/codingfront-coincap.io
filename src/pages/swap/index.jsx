@@ -13,7 +13,6 @@ export function Swap() {
               <i className="bi bi-gear-fill"></i>
             </button>
           </div>
-          {/* TODO make this input dynamic */}
           <div className="swaper-wrapper">
             <div className="sell">
               <div>

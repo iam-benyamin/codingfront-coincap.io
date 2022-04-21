@@ -129,7 +129,6 @@ export const Btn = styled.div`
         margin-top: 35px;
         margin-bottom: 25px;
         width: 6em;
-        // TODO transition, button animation
         &:hover {
             cursor: pointer;
         }

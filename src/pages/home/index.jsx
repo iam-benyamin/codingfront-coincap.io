@@ -94,7 +94,6 @@ export function Home() {
     <DefaultLayout>
       <Content style={{ display: isLoading ? "none" : "" }}>
         <Banner>
-          {/* TODO dynamick banner values */}
           <div className="container">
             <div className="column">
               <div>
@@ -125,7 +124,6 @@ export function Home() {
           </div>
         </Banner>
         <div className="container">
-          {/* TODO sort functionality */}
           <Table>
             <div className="container">
               <div className="content">

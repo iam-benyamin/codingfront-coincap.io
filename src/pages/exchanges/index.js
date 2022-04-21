@@ -62,7 +62,6 @@ export function Exchanges() {
             <Content style={{ display: isLoading ? "none" : "" }}>
                 {/* make banner as component */}
                 <Banner>
-                    {/* TODO dynamick banner values */}
                     <div className="container">
                         <div className="column">
                             <div>
@@ -93,7 +92,6 @@ export function Exchanges() {
                     </div>
                 </Banner>
                 <div className="container">
-                    {/* TODO sort functionality */}
                     <Table>
                         <div className="container">
                             <div className="content">

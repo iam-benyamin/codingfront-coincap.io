@@ -12,8 +12,6 @@ npm start
 
 ## TODO 
 
-- [ ] TODO show full data for coin in a single page
-- [ ] TODO ask for cookie 
 - [ ] TODO setting button and section
 - [ ] TODO responsive
 - [ ] TODO flash table row 
