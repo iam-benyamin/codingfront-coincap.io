@@ -4,6 +4,7 @@ import { Banner, Chart, Swap, StyleData, Table, Btn, Circle } from './style';
 import { api } from "../../utils/api";
 import { Fragment, useEffect, useState } from 'react';
 import { abbreviateNumber } from "../../utils/abbreviateNumber";
+import { LineChart } from "./chart";
 
 export function Detail() {
     // TODO chart section
@@ -107,7 +108,7 @@ export function Detail() {
                 <div className="container">
                     <StyleData>
                         <Chart>
-                            {/* <LineChart /> */}
+                            <LineChart />
                         </Chart>
                         <Swap>
                             <div className="head">
