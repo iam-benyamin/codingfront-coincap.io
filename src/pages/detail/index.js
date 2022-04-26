@@ -7,7 +7,6 @@ import { abbreviateNumber } from "../../utils/abbreviateNumber";
 import { LineChart } from "./chart";
 
 export function Detail() {
-    // TODO chart section
     const coin = useParams();
     const [isShowButton, setIsShowButton] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
@@ -108,7 +107,7 @@ export function Detail() {
                 <div className="container">
                     <StyleData>
                         <Chart>
-                            <LineChart />
+                            <LineChart id={coin} />
                         </Chart>
                         <Swap>
                             <div className="head">
