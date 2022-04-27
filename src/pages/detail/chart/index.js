@@ -1,4 +1,4 @@
-import { TableInfo } from "./style";
+import { TableInfo, IntervalDiv } from "./style";
 import React from 'react';
 import {
     Chart as ChartJS,
@@ -9,11 +9,13 @@ import {
     Title,
     Tooltip,
     Legend,
+    Filler,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { Fragment } from 'react';
 import { useEffect, useState } from 'react';
 import { api } from "../../../utils/api";
+import { displayTime } from "../../../utils/timeDisplay";
 
 ChartJS.register(
     CategoryScale,
@@ -22,7 +24,8 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    Filler,
 );
 
 export const options = {
@@ -42,28 +45,27 @@ export const options = {
 export function LineChart(coin) {
     let coinId = coin.id.id;
     const [coinInfo, setCoinInfo] = useState([])
-    const [assetsHistory, setAssetsHistory] = useState([]);
-    let thisCoinLowerCaseSymbol;
+    const [assets, setAssets] = useState([]);
+    const [interval, setInterval] = useState("h1");
     let today = new Date();
     let date = today.getFullYear() + ' ' + (today.getMonth() + 1) + ' ' + today.getDate();
     useEffect(() => {
         async function getApi() {
-            const responseOfHistory = await api.get(`assets/${coinId}/history?interval=d1`);
+            const responseOfHistory = await api.get(`assets/${coinId}/history?interval=${interval}`);
             const CoinDetail = await api.get(`assets/${coinId}`)
             setCoinInfo(CoinDetail.data.data)
-            setAssetsHistory(responseOfHistory.data.data);
-            thisCoinLowerCaseSymbol = coinInfo.symbol.toLowerCase()
+            setAssets(responseOfHistory.data.data);
         }
         getApi();
-    }, []);
+    }, [interval]);
 
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = assets.map(item => displayTime(item.time));
     const data = {
         labels,
         datasets: [
             {
                 label: 'Dataset 1',
-                data: labels.map(() => Math.random() * (1000)),
+                data: assets.map(item => item.priceUsd),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
@@ -94,6 +96,14 @@ export function LineChart(coin) {
                 </div>
             </TableInfo>
             <Line options={options} data={data} />
+            <IntervalDiv>
+                <span onClick={() => {setInterval('d1')}}>1D</span>
+                <span onClick={() => {setInterval('h6')}}>3M</span>
+                <span onClick={() => {setInterval('d1')}}>6M</span>
+                <span onClick={() => {setInterval('h6')}}>1W</span>
+                <span onClick={() => {setInterval('d1')}}>1Y</span>
+                <span onClick={() => {setInterval('h6')}}>ALL</span>
+            </IntervalDiv>
         </Fragment>
     );
 }

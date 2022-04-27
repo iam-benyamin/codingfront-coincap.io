@@ -16,3 +16,18 @@ export const TableInfo = styled.div`
         opacity: 0.8;
     }
 `
+export const IntervalDiv = styled.div`
+    margin-top: 15px;
+    span {
+        cursor: pointer;
+        color: #18c683;
+        padding: 5px 8px;
+        border-radius: 15px;
+        margin-left: 10px;
+        font-size: 13px;
+        &:active {
+            background: #18c683;
+            color: #ffffff;
+        }
+    }
+`
