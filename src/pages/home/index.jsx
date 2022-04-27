@@ -1,8 +1,8 @@
-import { DefaultLayout } from "../../components/layouts/defaultLayout";
-import { api } from "../../utils/api";
+import { DefaultLayout } from "components/layouts/defaultLayout";
+import { api } from "utils/api";
 import { Fragment, useState, useEffect, useRef } from "react";
 import { Content, Banner, Table, Btn } from "./style";
-import { abbreviateNumber } from "../../utils/abbreviateNumber";
+import { abbreviateNumber } from "utils/abbreviateNumber";
 import { Link } from "react-router-dom";
 
 export function Home() {

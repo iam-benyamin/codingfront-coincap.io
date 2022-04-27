@@ -1,9 +1,9 @@
-import { DefaultLayout } from "../../components/layouts/defaultLayout";
+import { DefaultLayout } from "components/layouts/defaultLayout";
 import { Banner, Table, Content, Circle, Btn } from "./style";
 import { useState, useEffect } from 'react';
 import { Fragment } from "react";
-import { api } from "../../utils/api";
-import { abbreviateNumber } from "../../utils/abbreviateNumber";
+import { api } from "utils/api";
+import { abbreviateNumber } from "utils/abbreviateNumber";
 
 export function Exchanges() {
     const [isShowButton, setIsShowButton] = useState(true);

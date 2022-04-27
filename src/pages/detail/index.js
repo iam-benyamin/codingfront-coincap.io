@@ -1,9 +1,9 @@
-import { DefaultLayout } from "../../components/layouts/defaultLayout";
+import { DefaultLayout } from "components/layouts/defaultLayout";
 import { useParams } from "react-router-dom";
 import { Banner, Chart, Swap, StyleData, Table, Btn, Circle } from './style';
-import { api } from "../../utils/api";
+import { api } from "utils/api";
 import { Fragment, useEffect, useState } from 'react';
-import { abbreviateNumber } from "../../utils/abbreviateNumber";
+import { abbreviateNumber } from "utils/abbreviateNumber";
 import { LineChart } from "./chart";
 
 export function Detail() {

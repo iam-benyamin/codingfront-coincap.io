@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Style } from "./style";
-import appleStore from "../../assets/images/appleStore.svg";
+import appleStore from "assets/images/appleStore.svg";
 
 export function Footer() {
   return (

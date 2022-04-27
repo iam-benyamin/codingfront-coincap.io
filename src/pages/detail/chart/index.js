@@ -14,8 +14,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Fragment } from 'react';
 import { useEffect, useState } from 'react';
-import { api } from "../../../utils/api";
-import { displayTime } from "../../../utils/timeDisplay";
+import { api } from "utils/api";
+import { displayTime } from "utils/timeDisplay";
 
 ChartJS.register(
     CategoryScale,
@@ -25,7 +25,6 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend,
-    Filler,
 );
 
 export const options = {
@@ -97,12 +96,12 @@ export function LineChart(coin) {
             </TableInfo>
             <Line options={options} data={data} />
             <IntervalDiv>
-                <span onClick={() => {setInterval('d1')}}>1D</span>
-                <span onClick={() => {setInterval('h6')}}>3M</span>
-                <span onClick={() => {setInterval('d1')}}>6M</span>
-                <span onClick={() => {setInterval('h6')}}>1W</span>
-                <span onClick={() => {setInterval('d1')}}>1Y</span>
-                <span onClick={() => {setInterval('h6')}}>ALL</span>
+                <span onClick={() => { setInterval('d1') }}>1D</span>
+                <span onClick={() => { setInterval('h6') }}>3M</span>
+                <span onClick={() => { setInterval('d1') }}>6M</span>
+                <span onClick={() => { setInterval('h6') }}>1W</span>
+                <span onClick={() => { setInterval('d1') }}>1Y</span>
+                <span onClick={() => { setInterval('h6') }}>ALL</span>
             </IntervalDiv>
         </Fragment>
     );

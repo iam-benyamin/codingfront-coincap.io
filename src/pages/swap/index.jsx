@@ -1,4 +1,4 @@
-import { DefaultLayout } from "../../components/layouts/defaultLayout";
+import { DefaultLayout } from "components/layouts/defaultLayout";
 import { SwapStyle, Box } from "./style";
 
 export function Swap() {
