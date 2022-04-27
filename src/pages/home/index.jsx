@@ -56,7 +56,7 @@ export function Home() {
                 <span className="symbol">{symbol}</span>
               </Link>
             </td>
-            <td>${Math.round(priceUsd * 100) / 100}</td>
+            <td>${(Math.round(priceUsd * 100) / 100).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
             <td>${abbreviateNumber(Math.round(marketCapUsd * 100) / 100)}</td>
             <td>${Math.round(vwap24Hr * 100) / 100}</td>
             <td>{abbreviateNumber(Math.round(supply * 100) / 100)}</td>

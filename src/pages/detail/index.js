@@ -75,7 +75,7 @@ export function Detail() {
                             </div>
                             <div className="coin">
                                 <p>{assetsId.name}({assetsId.symbol})</p>
-                                <p>${Math.round(assetsId.priceUsd * 100) / 100}
+                                <p>${(Math.round(assetsId.priceUsd * 100) / 100).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
                                     <span
                                         style={{ color: assetsId.changePercent24Hr > 0 ? "#18c683" : "#f44336" }}
                                     >
