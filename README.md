@@ -9,9 +9,3 @@
 npm install
 npm start
 ```
-
-## TODO 
-
-- [ ] TODO setting button and section
-- [ ] TODO responsive
-- [ ] TODO flash table row 
