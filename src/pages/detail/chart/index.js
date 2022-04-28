@@ -70,12 +70,13 @@ export function LineChart(coin) {
             },
         ],
     };
+    console.log()
     return (
         <Fragment>
             <TableInfo >
                 <div className="coin-logo">
                     <img
-                        src={`https://assets.coincap.io/assets/icons/btc@2x.png`}
+                        src={`https://assets.coincap.io/assets/icons/${String(coinInfo.symbol).toLowerCase()}@2x.png`}
                     />
                 </div>
                 <div className="date">
