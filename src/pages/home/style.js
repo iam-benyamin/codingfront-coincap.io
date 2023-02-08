@@ -45,7 +45,7 @@ export const Table = styled.div`
                     background: #fafafa;
                     color: #00000099;
                     font-size: 0.9rem;
-                    font-weight: 300;
+                    font-weight: 400;
                     cursor: pointer;
                     padding: 13px 15px;
                     text-align: right;
@@ -70,7 +70,7 @@ export const Table = styled.div`
                 td {
                     padding: 11px;
                     margin: 1rem;
-                    font-weight: 200;
+                    font-weight: 400;
                     font-size: 14px;
                     color: #000000e6; 
                     text-align: right;
